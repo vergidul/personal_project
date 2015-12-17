@@ -26,7 +26,7 @@ class UserRequest extends Request
         return [
 			'name' => ['required', 'max:255'],
             'email' => ['required', 'email', 'unique:users' . ($this->method() == 'POST' ? '' : (',email,' . $this->route('users')->id))],
-			'password' => ['required', 'min:4'],
+			'password' => ['required', 'min:6'],
         ];
     }
 }

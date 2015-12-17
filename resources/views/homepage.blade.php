@@ -49,8 +49,12 @@ Benvenuto
       <div class="jumbotron">
         <h1>Buongiorno Turista!</h1>
         <p>Oggi è un buon giorno per scoprire cose nuove!</p>
-      <p><a href="{{action('UsersController@create')}}" class="btn btn-primary btn-lg" role="button">Scopri di più &raquo;</a></p>  
-
+        <!--  esempio di come si fa un procedimento diverso se l'utente è loggato o no -->	
+        	<?php if (!Auth::check()) { ?>
+				<p><a href="{{action('Auth\AuthController@getLogin')}}" class="btn btn-primary btn-lg" role="button">Scopri di più &raquo;</a></p>
+        	<?php } else { ?>
+ 				<p><a href="{{action('Auth\AuthController@getLogout')}}" class="btn btn-primary btn-lg" role="button">Esci</a></p>
+ 			<?php } ?>
 
 
 
